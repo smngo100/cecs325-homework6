@@ -1,27 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <random>
+#include "myvectors.h"
 
 int main() {
 
     // Repeat the menu until Quit is chosen.
     while (true) {
         // Declare a vector data that is initially empty. Each option in the menu manipulates data in some way.
-        std::vector<int> n;
+        std::vector<int> v{};
 
         // Option 1: Randomize data.
         // Read an integer n from the user, then override data with the randomized data returned by randomVector(n).
-        // Declare a random device and engine
-        std::random_device rd{};
-        unsigned int seed = rd();
-        std::default_random_engine engine{seed};
-
-        // Declare a uniform distribution to generate #s from 0 to n - 1 inclusive
-        std::uniform_int_distribution<int> oneToThree{0, n - 1};
+        std::cout << "Enter an integer: ";
+        int n{};
+        std::cin >> n;
+        std::vector<int> randomized_data = randomVector(n);
 
         // Option 2: Print data
         // Print data using std::cout and the operator<< you wrote.
-
+        std::cout << randomized_data << "\n\n";
 
         // Option 3: Find value
         // Read an integer x from the user. Print the index where x can be found in data, or print "{x} is not in the data",
@@ -39,6 +36,7 @@ int main() {
 
         // Option 6: Quit.
         // Terminate the program.
+
 
     }
     return 0;

@@ -8,7 +8,6 @@
 #include <iostream>
 #include <vector>
 
-class myvectors {
     std::vector<int> randomVector(size_t n);
 
     std::ostream& operator<<(std::ostream& lhs, const std::vector<int>& rhs);
@@ -18,7 +17,6 @@ class myvectors {
     void halve(std::vector<int>& values);
 
     std::vector<int> operator+(const std::vector<int>& lhs, const std::vector<int>& rhs);
-};
 
 
 #endif //MYVECTORS_H
