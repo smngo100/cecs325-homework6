@@ -3,24 +3,25 @@
 #include "myvectors.h"
 
 int main() {
-    // Declare a vector data that is initially empty. Each option in the menu manipulates data in some way.
+    // Declare a vector data that is initially empty
     std::vector<int> data{};
 
-    // Repeat the menu until Quit is chosen.
+    // Repeat the menu until Quit is chosen
     while (true) {
-        std::cout << "===== MENU =====" << std::endl;
-        std::cout << "Select an option:" << std::endl;
+        std::cout << "======== MENU ========" << std::endl;
         std::cout << "1. Randomize data" <<std::endl;
         std::cout << "2. Print data" << std::endl;
         std::cout << "3. Find value" << std::endl;
         std::cout << "4. Halve data" << std::endl;
         std::cout << "5. Weird concatenate" << std::endl;
         std::cout << "6. Quit" << std::endl;
+        std::cout << "======================" << std::endl;
+        std::cout << "Select an option: ";
 
         int option{};
         std::cin >> option;
 
-        // Option 1: Randomize data.
+        // Option 1: Randomize data
         // Read an integer n from the user, then override data with the randomized data returned by randomVector(n).
         if (option ==  1) {
            std::cout << "Enter an integer: ";
@@ -36,8 +37,7 @@ int main() {
         }
 
         // Option 3: Find value
-        // Read an integer x from the user. Print the index where x can be found in data, or print "{x} is not in the data",
-        // // where {x} is the user's input. Use findValue.
+        // Read an integer x from the user. Determine whether or not the index x can be found in data.
         else if (option == 3) {
             std::cout << "Enter value to find: " << std::endl;
             int x{};
@@ -59,11 +59,12 @@ int main() {
         }
 
         // Option 5: Weird concatenate
-        // Construct a second random vector, using the size() of data as n. Use your operator+ to build a new vector,
-        // where data is lhs and the second vector is rhs. Print the resulting vector using operator<<.
+        // Construct a second random vector. Where data is lhs and the second vector is rhs. Print the result.
         else if (option == 5) {
-            int n = sizeof(data);
+            int n = data.size();
             std::vector<int> v2{randomVector(n)};
+            std::cout << "Data: " << data << std::endl;
+            std::cout << "Second random vector: " << v2 << std::endl;
             std::vector<int> result{data + v2};
             std::cout << "Concatenation results: " << result << "\n\n";
         }
@@ -77,6 +78,3 @@ int main() {
     }
     return 0;
 }
-
-
-// Account for multiple indices? (option 3)
